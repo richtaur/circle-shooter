@@ -36,14 +36,14 @@ var resetTarget = function () {
 	// Make the target faster as the score increases
 	target.speed = target.speed + score;
 
-	// Move the target outside the canvas, just to the right
-	target.x = canvas.width + target.radius;
-
-	// Move the target to a random position along the Y axis
-	target.y = Math.random() * canvas.height;
-
 	// Set the target's radius (circle size)
 	target.radius = 50;
+
+	// Move the target to a random position along the X axis
+	target.x = Math.random() * canvas.width;
+
+	// Move the target just above the canvas
+	target.y = 0;
 
 	// Make the target smaller as the score increases
 	target.radius -= score;
@@ -89,20 +89,20 @@ var update = function (delta) {
 	var seconds = delta / 1000;
 
 	// Get the amount of pixels to move the target
-	var decrease = target.speed * seconds;
+	var increase = target.speed * seconds;
 
 	// Move the target along the X axis
-	target.x -= decrease;
+	target.y += increase;
 
 	// Fire the game over state when the target leaves the canvas
-	if (target.x <= -target.radius) {
+	if (target.y > canvas.height + target.radius) {
 		newGame();
 	}
 
 	// Update the shot
 	if (shot.active) {
 		// Decrease shot size
-		decrease = shot.speed * seconds;
+		var decrease = shot.speed * seconds;
 		shot.radius -= decrease;
 
 		// Check if the shot is done shrinking
@@ -154,7 +154,8 @@ var render = function () {
 	// Render the score in the lower-left corner
 	context.fillStyle = "white";
 	context.font = "24px Verdana";
-	context.fillText(score, 16, canvas.height - 24);
+	context.textAlign = "center";
+	context.fillText(score, canvas.width / 2, 32);
 };
 
 // Get the current time
