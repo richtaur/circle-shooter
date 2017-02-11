@@ -140,14 +140,14 @@ var render = function () {
 
 	// Set path for an "arc" which will be a full circle
 	context.arc(target.x, target.y, target.radius, 0, Math.PI * 2);
-	context.fillStyle = "rgb(255, 0, 0)";
+	context.fillStyle = "red";
 	context.fill();
 
 	// Draw the shot
 	if (shot.active) {
 		context.beginPath();
 		context.arc(shot.x, shot.y, shot.radius, 0, Math.PI * 2);
-		context.fillStyle = "rgba(0, 255, 0, 0.5)";
+		context.fillStyle = "white";
 		context.fill();
 	}
 
