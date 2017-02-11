@@ -23,7 +23,7 @@ var target = {
 var shot = {
 	active: false,
 	radius: 0,
-	speed: 200,
+	speed: 250,
 	x: 0,
 	y: 0
 };
@@ -31,7 +31,7 @@ var shot = {
 // Create a function to reset the target's properties
 var resetTarget = function () {
 	// Set target speed
-	target.speed = 250;
+	target.speed = 150;
 
 	// Make the target faster as the score increases
 	target.speed = target.speed + score;
@@ -94,7 +94,7 @@ var update = function (delta) {
 	// Move the target along the X axis
 	target.y += increase;
 
-	// Fire the game over state when the target leaves the canvas
+	// When the target leaves the canvas, start a new game
 	if (target.y > canvas.height + target.radius) {
 		newGame();
 	}
@@ -151,7 +151,7 @@ var render = function () {
 		context.fill();
 	}
 
-	// Render the score in the lower-left corner
+	// Render the score
 	context.fillStyle = "white";
 	context.font = "24px Verdana";
 	context.textAlign = "center";
