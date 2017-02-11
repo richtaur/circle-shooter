@@ -110,16 +110,15 @@ var update = function (delta) {
 			// Deactivate the shot
 			shot.active = false;
 
-			// Check if the X axis is within range of the target
-			if (Math.abs(shot.x - target.x) <= target.radius) {
-				// Also the Y axis
-				if (Math.abs(shot.y - target.y) <= target.radius) {
-					// SCORE! Good job
-					// Increment player score by 1
-					score++;
+			// Check if the shot is within range of the target
+			// Whoa math what IT'S OK POWER THROUGH IT
+			var distance = Math.sqrt(Math.pow(shot.x - target.x, 2) + Math.pow(shot.y - target.y, 2));
+			if (distance <= target.radius) {
+				// SCORE! Good job
+				// Increment player score by 1
+				score++;
 
-					resetTarget();
-				}
+				resetTarget();
 			}
 		}
 	}
