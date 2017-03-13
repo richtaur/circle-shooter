@@ -99,8 +99,7 @@ var update = function (delta) {
 	// Update the shot
 	if (shot.active) {
 		// Decrease shot size
-		var decrease = shot.speed * seconds;
-		shot.radius -= decrease;
+		shot.radius -= shot.speed * seconds;
 
 		// Check if the shot is done shrinking
 		if (shot.radius <= 0) {
