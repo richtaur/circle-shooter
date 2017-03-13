@@ -172,12 +172,9 @@ var tick = function () {
 	now = Date.now();
 };
 
-// Get the frames per second (FPS) that we want to target
-var fps = 60;
-
 // Calculate how often we should fire the tick
 // This number will be about 16 milliseconds (60 FPS)
-var interval = 1000 / fps;
+var interval = 1000 / 60;
 
 // Run the tick on an interval (see also: requestAnimationFrame)
 setInterval(tick, interval);
