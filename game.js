@@ -43,7 +43,7 @@ var resetTarget = function () {
 	target.x = Math.random() * canvas.width;
 
 	// Move the target just above the canvas
-	target.y = 0;
+	target.y = -target.radius;
 
 	// Make the target smaller as the score increases
 	target.radius -= score;
@@ -88,11 +88,8 @@ var update = function (delta) {
 	// Get the seconds that have passed so we can multiply by speed
 	var seconds = delta / 1000;
 
-	// Get the amount of pixels to move the target
-	var increase = target.speed * seconds;
-
 	// Move the target along the X axis
-	target.y += increase;
+	target.y += target.speed * seconds;
 
 	// When the target leaves the canvas, start a new game
 	if (target.y > canvas.height + target.radius) {
