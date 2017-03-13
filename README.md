@@ -1,3 +1,3 @@
-# Make a Simple Game
+# Circle Shooter
 
-Make a simple game using only your browser and a basic text editor.
+A simple game created using only a browser and a text editor.
